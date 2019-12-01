@@ -3,6 +3,7 @@
 #include <string.h>
 #include "runway.h"
 
+
 struct flightNode {
 	pFlight flight_pointer;
 	pNode nextFlightNode;
@@ -13,7 +14,12 @@ struct runway {
 	FlightType runwayType;
 	pNode pList;
 };
-
+/*
+	function name: createRunway
+	Description: create a new runway instance with the given properties
+	Parameters: id - runway id, type - FlightType(DOMESTIC/INTERNATIONAL)
+	Return Value: pointer to the new runway instance, NULL is returned if the operation is failed.
+*/
 pRunway createRunway(int runwayID, FlightType type) {
 	if (runwayID > 0 && runwayID <= MAX_ID && (type == DOMESTIC || type == INTERNATIONAL)) {
 		pRunway runway_pointer = (pRunway)malloc(sizeof(struct runway));
